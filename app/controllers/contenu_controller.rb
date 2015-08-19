@@ -1,0 +1,3 @@
+class ContenuController < ApplicationController
+
+end

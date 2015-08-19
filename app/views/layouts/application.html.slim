@@ -1,0 +1,83 @@
+doctype html
+html
+  head lang="fr"
+	  title Génie
+		meta charset="utf-8"
+		meta name="format-detection" content="telephone-no"
+	  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
+	  = csrf_meta_tags
+		
+  body
+		.page
+			header
+				div#stuck_container.stuck_container
+					div.container
+						nav.nav
+							ul class="sf-menu" data-type="navbar"
+								li.active
+									a href="./" Accueil
+								li
+									a href="index-1.html" Climatisation
+								li
+									a href="index-2.html" Installation frigorifique
+								li
+									a  href="index-3.html" Pompe à chaleur
+								li
+									a href="index-4.html" Plomberie
+								li
+									a href="index-5.html" SAV réparations
+								li
+									a href="index-5.html" Contact
+									
+				div class="container top-well"
+					.brand
+						h1.brand_name
+							a href="./" 
+								= image_tag("logo")
+							
+
+					ul.contact-inline-list
+						li 
+							a.fa-map-marker href="#"
+						li
+							a.fa-envelope href="mailto:#"
+						li
+							a.fa-phone href="callto:#"
+			
+		p.notice = notice
+		p.alert = alert 
+		
+		== yield
+		footer
+			section class="well4 offset1"
+				div class="container primary-color"
+					.row
+						.grid_6 data-equal-group="2" style="height: 504px;"
+							.box_inner
+								= image_tag("logo_qualipac_2014_RGE", width: 250)
+						.grid_6 data-equal-group="2" style="height: 504px;"
+							.box_inner
+								= image_tag("logo_qualibois_2014_RGE", width: 250)
+					.address-box
+						address
+							| 175 rue Victor Hugo - 32000 Auch
+						br
+						dl
+							dt
+								| Telephone:   
+							dd
+								| 05 62 61 05 31
+						dl.primary-color
+							dt
+								| e-mail: 
+							dd
+								a href="mailto:genie.energetique32@orange.fr" genie.energetique32@orange.fr 
+						span.comp-name Génie Energétique ©  
+						span#copyright-year 2015 
+						|  Site réalisé par 
+						a target="_blank" rel="nofollow" href="http://www.nicolas-candelon.fr" Nicolas Candelon. 
+
+		= javascript_include_tag 'script', media: 'all', 'data-turbolinks-track' => true
+		javascript:
+			$('ul.sf-menu').superfish();
