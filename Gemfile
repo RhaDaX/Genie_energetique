@@ -28,6 +28,7 @@ gem 'devise'
 gem 'slim'
 
 
+
 gem 'slim-rails'
 
 # Use ActiveModel has_secure_password
