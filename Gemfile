@@ -22,6 +22,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'activeadmin', :path => 'vendor/active_admin'
+gem 'active_admin_editor', :path => 'vendor/active_admin_editor'
+gem 'devise'
+gem 'slim'
+gem 'slim-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,8 +51,3 @@ group :production do
   gem 'pg'
   gem 'thin'
 end
-gem 'activeadmin', :path => 'vendor/active_admin'
-gem 'active_admin_editor', :path => 'vendor/active_admin_editor'
-gem 'devise'
-gem 'slim'
-gem 'slim-rails'
