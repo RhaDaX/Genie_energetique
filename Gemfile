@@ -22,8 +22,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'activeadmin', :path => 'vendor/active_admin'
-gem 'active_admin_editor', :path => 'vendor/active_admin_editor'
+gem 'activeadmin', :git => 'git@github.com:RhaDaX/active_admin_own.git'
+gem 'active_admin_editor', :git => 'git@github.com:RhaDaX/active-admin-editor-own.git'
 gem 'devise'
 gem 'slim'
 gem 'slim-rails'
