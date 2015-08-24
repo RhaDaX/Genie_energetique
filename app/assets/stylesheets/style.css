@@ -1466,3 +1466,12 @@ footer .priv-link:hover {
 div.activeadmin-wysihtml5 { float: none; width: 50%; }
 .activeadmin-wysihtml5 iframe .wysihtml5-sandbox { width: 70%!important;}
 body.active_admin form .activeadmin-wysihtml5, #main_content form fieldset ol > li label { float: none!important;}
+
+img[alt="genie-systeme"] {
+  position: absolute;
+  left: 50%;
+  margin-left: -125px;
+  margin-top: -40px;
+}
+
+

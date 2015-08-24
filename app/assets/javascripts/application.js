@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-migrate-1.2.1
+
+

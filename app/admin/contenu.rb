@@ -3,7 +3,7 @@ ActiveAdmin.register Contenu do
   form do |f|
     f.inputs "Contenu" do
       f.input :title
-      f.input :content, as: :wysihtml5, commands: [ :bold, :italic, :underline ], blocks: [ :h3, :p]
+      f.input :content, as: :html_editor
 
     end
     f.action :submit

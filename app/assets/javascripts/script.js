@@ -14,3 +14,4 @@
 //= require footer/jquery.mobile.customized.min
 //= require footer/camera
 //= require footer/jquery.rd-parallax
+
