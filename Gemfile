@@ -26,6 +26,8 @@ gem 'activeadmin', :git => 'git@github.com:RhaDaX/active_admin_own.git'
 gem 'active_admin_editor', :git => 'git@github.com:RhaDaX/active-admin-editor-own.git'
 gem 'devise'
 gem 'slim'
+
+
 gem 'slim-rails'
 
 # Use ActiveModel has_secure_password
