@@ -5,6 +5,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( script.js )
 Rails.application.config.assets.precompile += %w( /footer )
 Rails.application.config.assets.precompile += %w( wysi5.js )
+Rails.application.config.assets.precompile += %w( frontend.css frontend.js active_admin.css active_admin.js )
 
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path

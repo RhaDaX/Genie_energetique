@@ -44,9 +44,10 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  gem 'thin'
 end
 gem 'activeadmin', :path => 'vendor/active_admin'
-gem 'active_admin_editor', github: 'ejholmes/active_admin_editor'
+gem 'active_admin_editor', :path => 'vendor/active_admin_editor'
 gem 'devise'
 gem 'slim'
 gem 'slim-rails'

@@ -1,0 +1,413 @@
+@mixin basic-button {
+  @include rounded(200px);
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.0em;
+  @include sans-family;
+  line-height: 12px;
+  margin-right: 3px;
+  padding: 7px 16px 6px;
+  text-decoration: none;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+}
+
+@mixin default-button {
+  @include basic-button;
+  @include gradient(lighten($primary-color, 15%), darken($primary-color, 12%));
+  @include text-shadow(#000);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.10), 0 1px 0 0px rgba(255,255,255, 0.2) inset;
+  border: solid 1px #484e53;
+  @include border-colors(#616a71, #484e53, #363b3f);
+  color: #efefef;
+
+  &:not(.disabled) {
+    &:hover{
+      @include gradient(lighten($primary-color, 18%), darken($primary-color, 9%));
+    }
+
+    &:active {
+      box-shadow: 0 1px 3px rgba(0,0,0,0.40) inset, 0 1px 0 0px #FFF;
+      @include gradient(lighten($primary-color, 8%), darken($primary-color, 17%));
+    }
+  }
+}
+
+@mixin light-button {
+  @include basic-button;
+  @include gradient(#FFFFFF, #E7E7E7);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.10), 0 1px 0 0 rgba(255,255,255, 0.8) inset;
+  border: solid 1px #c7c7c7;
+  @include border-colors(#d3d3d3, #c7c7c7, #c2c2c2);
+  @include text-shadow;
+  color: $primary-color;
+
+  &:not(.disabled) {
+    &:hover {
+      @include gradient(#FFFFFF, #F1F1F1);
+    }
+
+    &:active {
+      box-shadow: 0 1px 2px rgba(0,0,0,0.22) inset, 0 1px 0 0px #EEE;
+      @include border-colors(#c2c2c2, #b9b9b9, #b7b7b7);
+      @include gradient(#F3F3F3, #D8D8D8);
+    }
+  }
+
+}
+
+@mixin dark-button {
+  @include default-button;
+}
+
+
+
+$secondary-gradient-start: #efefef !default;
+$secondary-gradient-stop: #dfe1e2 !default;
+
+@mixin gradient($start, $end){
+  background-color: $start;
+  background-image: linear-gradient(180deg, $start, $end);
+}
+
+@mixin primary-gradient {
+  @include gradient(lighten($primary-color, 5%), darken($primary-color, 7%));
+  border-bottom: 1px solid darken($primary-color, 11%);
+}
+
+@mixin secondary-gradient {
+  @include gradient($secondary-gradient-start, $secondary-gradient-stop);
+}
+
+@mixin highlight-gradient {
+  @include gradient(#75a1c2, #608cb4);
+}
+
+@mixin reverse-highlight-gradient {
+  @include gradient(#608cb4, #75a1c2);
+}
+
+@mixin no-gradient {
+  background-color: none;
+}
+
+
+
+// FROM The Compass Framework (compass-style.org)
+//
+// Copyright (c) 2009 Christopher M. Eppstein
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy of
+// this software and associated documentation files (the "Software"), to deal in
+// the Software without restriction, including without limitation the rights to
+// use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+// the Software, and to permit persons to whom the Software is furnished to do so,
+// subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software. No attribution is required by
+// products that make use of this software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+// FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+// COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+// IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+// CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+//
+// Except as contained in this notice, the name(s) of the above copyright holders
+// shall not be used in advertising or otherwise to promote the sale, use or other
+// dealings in this Software without prior written authorization.
+//
+// Contributors to this project agree to grant all rights to the copyright holder
+// of the primary product. Attribution is maintained in the source control history
+// of the product.
+//
+// Based on [Eric Meyer's reset](http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/)
+// Global reset rules.
+// For more specific resets, use the reset mixins provided below
+//
+// *Please Note*: tables still need `cellspacing="0"` in the markup.
+@mixin global-reset {
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, font, img, ins, kbd, q, s, samp,
+  small, strike, strong, sub, sup, tt, var,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td {
+    @include reset-box-model;
+    @include reset-font; }
+  body {
+    @include reset-body; }
+  ol, ul {
+    @include reset-list-style; }
+  table {
+    @include reset-table; }
+  caption, th, td {
+    @include reset-table-cell; }
+  q, blockquote {
+    @include reset-quotation; }
+  a img {
+    @include reset-image-anchor-border; } }
+
+// Reset all elements within some selector scope. To reset the selector itself,
+// mixin the appropriate reset mixin for that element type as well. This could be
+// useful if you want to style a part of your page in a dramatically different way.
+//
+// *Please Note*: tables still need `cellspacing="0"` in the markup.
+@mixin nested-reset {
+  div, span, object, iframe, h1, h2, h3, h4, h5, h6, p,
+  pre, a, abbr, acronym, address, code, del, dfn, em, img,
+  dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, tr {
+    @include reset-box-model;
+    @include reset-font; }
+  table {
+    @include reset-table; }
+  caption, th, td {
+    @include reset-table-cell; }
+  q, blockquote {
+    @include reset-quotation; }
+  a img {
+    @include reset-image-anchor-border; } }
+
+// Reset the box model measurements.
+@mixin reset-box-model {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0; }
+
+// Reset the font and vertical alignment.
+@mixin reset-font {
+  font: {
+    weight: inherit;
+    style: inherit;
+    size: 100%;
+    family: inherit; };
+  vertical-align: baseline; }
+
+// Resets the outline when focus.
+// For accessibility you need to apply some styling in its place.
+@mixin reset-focus {
+  outline: 0; }
+
+// Reset a body element.
+@mixin reset-body {
+  line-height: 1;
+  color: black;
+  background: white; }
+
+// Reset the list style of an element.
+@mixin reset-list-style {
+  list-style: none; }
+
+// Reset a table
+@mixin reset-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle; }
+
+// Reset a table cell (`th`, `td`)
+@mixin reset-table-cell {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+// Reset a quotation (`q`, `blockquote`)
+@mixin reset-quotation {
+  quotes: "" "";
+  &:before, &:after {
+    content: ""; } }
+
+// Resets the border.
+@mixin reset-image-anchor-border {
+  border: none; }
+
+// Unrecognized elements are displayed inline.
+// This reset provides a basic reset for html5 elements
+// so they are rendered correctly in browsers that don't recognize them
+// and reset in browsers that have default styles for them.
+@mixin reset-html5 {
+  article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+    @include reset-box-model;
+    display: block; } }
+
+// Resets the display of inline and block elements to their default display
+// according to their tag type. Elements that have a default display that varies across
+// versions of html or browser are not handled here, but this covers the 90% use case.
+// Usage Example:
+//
+//     // Turn off the display for both of these classes
+//     .unregistered-only, .registered-only
+//       display: none
+//     // Now turn only one of them back on depending on some other context.
+//     body.registered
+//       +reset-display(".registered-only")
+//     body.unregistered
+//       +reset-display(".unregistered-only")
+@mixin reset-display($selector: "", $important: false) {
+  #{append-selector(elements-of-type("inline"), $selector)} {
+    @if $important {
+      display: inline !important; }
+    @else {
+      display: inline; } }
+  #{append-selector(elements-of-type("block"), $selector)} {
+    @if $important {
+      display: block !important; }
+    @else {
+      display: block; } } }
+
+
+@mixin rounded($radius: 3px) {
+  border-radius: $radius;
+}
+
+@mixin rounded-all($top-left:3px, $top-right:3px, $bottom-right:3px, $bottom-left:3px) {
+  border-top-right-radius: $top-right;
+  border-top-left-radius: $top-left;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+}
+
+@mixin rounded-top($radius: 3px) {
+  @include rounded(0);
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+}
+
+@mixin rounded-bottom($radius: 3px) {
+  @include rounded(0);
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+
+@mixin section-header {
+  @include secondary-gradient;
+  @include text-shadow;
+  border: solid 1px #cdcdcd;
+  @include border-colors(#e6e6e6, #d4d4d4, #cdcdcd);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 0 1px #FFF inset;
+
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 18px;
+  margin-bottom: 0.5em;
+  color: $section-header-text-color;
+
+  padding: 5px 10px 3px 10px;
+}
+
+@mixin section-background {
+  background: #f4f4f4;
+  @include rounded(4px);
+  @include inset-shadow(0,1px,4px, #ddd);
+}
+
+@mixin section {
+  @include section-background;
+  margin-bottom: 20px;
+
+  > h3 {
+    @include section-header;
+
+    .header_action {
+      float: right;
+    }
+  }
+
+  > div { padding: 3px $section-padding $section-padding $section-padding; }
+
+  hr {
+    border: none;
+    border-bottom: 1px solid #E8E8E8;
+  }
+}
+
+
+
+@mixin shadow($x: 0, $y: 1px, $blur: 2px, $color: rgba(0,0,0,0.37)) {
+  box-shadow: $x $y $blur $color;
+}
+
+@mixin no-shadow {
+  box-shadow: none;
+}
+
+@mixin inset-shadow($x: 0, $y: 1px, $blur: 2px, $color: #aaa) {
+  box-shadow: inset $x $y $blur $color;
+}
+
+@mixin text-shadow($color: #fff, $x: 0, $y: 1px, $blur: 0) {
+  text-shadow: $color $x $y $blur;
+}
+
+
+
+@mixin sans-family {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+
+
+@mixin clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    content: "";
+    clear: both;
+    height: 0;
+  }
+}
+
+@mixin border-colors($top, $sides, $bottom) {
+  border-color: $sides;
+  border-top-color: $top;
+  border-right-color: $sides;
+  border-bottom-color: $bottom;
+  border-left-color: $sides;
+}
+
+
+
+// Variables used throughout Active Admin.
+// They can be overridden by prepending your own
+// to 'app/assets/stylesheets/active_admin.scss'.
+
+// Colors
+$body-background-color: #FFF !default;
+$primary-color: #5E6469 !default;
+$secondary-color: #f0f0f0 !default;
+$text-color: #323537 !default;
+$link-color: #38678b !default;
+$section-header-text-color: $primary-color !default;
+$current-menu-item-background: lighten($primary-color, 12%) !default;
+$hover-menu-item-background: lighten($primary-color, 12%) !default;
+$table-stripe-color: lighten($primary-color, 57%) !default;
+$table-selected-color: #d9e4ec !default;
+$error-color: #932419 !default;
+$blank-slate-primary-color: #AAA !default;
+$breadcrumbs-color: #8a949e !default;
+$breadcrumbs-separator-color: #aab2ba !default;
+$required-field-marker-color: #aaa !default;
+$form-label-color: $section-header-text-color !default;
+$page-header-text-color: #cdcdcd !default;
+
+// Sizes
+$border-width: 1px !default;
+$horizontal-page-margin: 30px !default;
+$sidebar-width: 270px !default;
+$cell-padding: 5px 10px 3px 10px !default;
+$cell-horizontal-padding: 12px !default;
+$section-padding: 15px !default;
+$text-input-horizontal-padding: 10px !default;
+$text-input-total-padding: $text-input-horizontal-padding * 2 + $border-width * 2;
+
+$blank-slate-border: 1px dashed #DADADA !default;

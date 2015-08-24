@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module GNie
+module GeNie
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -22,6 +22,7 @@ module GNie
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.sass.load_paths << File.expand_path('../../vendor/assets/stylesheets/')
     config.i18n.default_locale = :fr
   end
 end
