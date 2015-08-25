@@ -54,6 +54,6 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
-  gem 'thin'
+  gem 'unicorn'
   gem 'rails_12factor'
 end
