@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  get 'climatisation' => 'home#clim'
+  get 'installation_frigorifique' => 'home#frigo'
+  get 'pompe_a_chaleur' => 'home#pompe'
+  get 'plomberie' => 'home#plomberie'
+  get 'sav' => 'home#sav'
+  get 'contact' => 'home#contact'
   # You can have the root of your site routed with "root"
   root 'home#index'
 

@@ -20,17 +20,17 @@ html
 								li.active
 									a href="./" Accueil
 								li
-									a href="index-1.html" Climatisation
+									= link_to "Climatisation", controller: "home", action: "clim"
 								li
-									a href="index-2.html" Installation frigorifique
+									= link_to "Installation frigorifique", controller: "home", action: "frigo"
 								li
-									a  href="index-3.html" Pompe à chaleur
+									= link_to "Pompe à chaleur", controller: "home", action: "pompe"
 								li
-									a href="index-4.html" Plomberie
+									= link_to "Plomberie", controller: "home", action: "plomberie"
 								li
-									a href="index-5.html" SAV réparations
+									= link_to "SAV", controller: "home", action: "sav"
 								li
-									a href="index-5.html" Contact
+									= link_to "Contact", controller: "home", action: "contact"
 								
 				div class="container top-well"
 					.brand
@@ -55,10 +55,10 @@ html
 				section class="well4"
 					div class="container primary-color"
 						.row
-							.grid_6 data-equal-group="2" style="height: 504px;"
+							.grid_6 data-equal-group="2"
 								.box_inner
 									= image_tag("logo_qualipac_2014_RGE", width: 250)
-							.grid_6 data-equal-group="2" style="height: 504px;"
+							.grid_6 data-equal-group="2" 
 								.box_inner
 									= image_tag("logo_qualibois_2014_RGE", width: 250)
 						.address-box
@@ -83,4 +83,5 @@ html
 			= javascript_include_tag 'script', media: 'all', 'data-turbolinks-track' => true
 			javascript:
 				$('ul.sf-menu').superfish();
+		<a href="#" id="toTop" class="toTop fa  fa-angle-up" style="display: inline; text-decoration: none;"></a>
 

@@ -903,11 +903,11 @@ ul + .address-box {
 }
 .sf-menu > li.sfHover > a,
 .sf-menu > li > a:hover {
-  color: #484848;
+  color: #36A4C5;
   background: #ffffff;
 }
 .sf-menu > li.active > a {
-  color: #484848;
+  color: #36A4C5;
   background: #ffffff;
 }
 .sf-menu ul {
@@ -1162,12 +1162,12 @@ ul + .address-box {
   height: 42px;
   font-size: 34px;
   line-height: 38px;
-  color: #ffffff;
-  background: #030303;
+  color: white !important;
+  background: #AF0505;
   border-radius: 50%;
   position: fixed;
   right: 66px;
-  bottom: 180px;
+  bottom: 100px;
   display: none;
   overflow: hidden;
   text-align: center;
@@ -1175,8 +1175,8 @@ ul + .address-box {
   z-index: 20;
 }
 .toTop:hover {
-  color: #6d6c6c;
-  background: rgba(200, 200, 200, 0.68);
+  color: white;
+  background: #36A4C5;
   border-color: #2c2c2c;
   text-decoration: none;
 }
@@ -1366,7 +1366,7 @@ main {
 }
 /*==================      Well     ======================*/
 .well1 {
-  padding-top: 162px;
+  padding-top: 62px;
   padding-bottom: 124px;
 }
 .well2 {
@@ -1472,4 +1472,15 @@ img[alt="genie-systeme"] {
   margin-top: -40px;
 }
 
+
+.fa-check-square-o.cert {
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.row.certificat {
+	margin-top: 60px;
+}
+.row.certificat h2 {
+	margin-bottom: 40px;
+}
 
